@@ -20,7 +20,7 @@
 
   Use *Escape* to quit the game.
 
-  There're debugging tools:
+## Debugging tools:
 
   *LeftAlt*: Display the material under your feet.
 
