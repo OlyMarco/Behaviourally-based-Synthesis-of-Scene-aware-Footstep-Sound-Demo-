@@ -13,14 +13,14 @@
   The Unity Engine is 2021.3.16f1c1.
 
   You can open the scene file *The_Viking_Village.unity* in the folder *DemoScene*.
-
+## Basic Inputs:
   Use *W, A, S, D* and your mouse to move the character. *LeftShift* to run, *LeftControl* to crawl and *Space* to jump.
 
   Wlile crawling, try *LeftAlt* to jump higher.
 
   Use *Escape* to quit the game.
 
-## Debugging tools:
+## Debugging Tools:
 
   *LeftAlt*: Display the material under your feet.
 
