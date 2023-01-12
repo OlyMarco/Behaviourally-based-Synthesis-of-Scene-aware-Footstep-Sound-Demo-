@@ -63617,43 +63617,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1846537399}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1849354846
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &1855922132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74759,37 +74722,37 @@ PrefabInstance:
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -99.40557
+      value: -20.469519
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.785
+      value: 6.863
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.603516
+      value: -25.39129
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.559478
+      value: 0.9957283
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.026200555
+      value: 0.021805074
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.82752335
+      value: 0.08969885
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.038770266
+      value: -0.0019900063
       objectReference: {fileID: 0}
     - target: {fileID: 8041194784327513818, guid: e4a3823a8bb3d6a4dbc936ce9d776ce7,
         type: 3}
