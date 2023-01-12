@@ -19,7 +19,7 @@
   
   *LeftShift* to run, *LeftControl* to crawl and *Space* to jump.
 
-  Wlile crawling, press *LeftAlt* to do a high jump.
+  While crawling, press *LeftAlt* to do a high jump.
 
   If you want to quit the game, just press *Escape*.
 
