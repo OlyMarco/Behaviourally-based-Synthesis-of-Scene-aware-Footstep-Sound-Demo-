@@ -1,7 +1,7 @@
 # Behaviourally-based Synthesis of Scene-aware Footstep-Sound (Demo)
 # Introducation
 ##
-  This is a Unity demo of Behaviourally-based Synthesis of Scene-aware Footstep Sound. Try it to feel how your behaviours and the scenes influence sounds.
+  This is a Unity demo of Behaviourally-based Synthesis of Scene-aware Footstep Sound. Try the demo to feel how your behaviours and the scenes influence sounds.
   
   The scene is *Viking Village URP* from Unity Asset Store. 
   Here is the link: https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140.
@@ -20,7 +20,7 @@
 
   While crawling, press *LeftAlt* to do a high jump.
 
-  If you want to quit the game, just press *Escape*.
+  If you want to quit the game, press *Escape*.
 
 ## Debugging Keys:
 
@@ -29,3 +29,4 @@
   *KeyPad 1-7*: Transfer you to seven different places.
 
   *N, M*: Reduce or increase the height of the transfer point *KeyPad 6, KeyPad 7*.
+  
