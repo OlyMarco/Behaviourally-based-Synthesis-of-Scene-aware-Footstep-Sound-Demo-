@@ -181,12 +181,10 @@ public class PlayerSynthesis : MonoBehaviour
 
 	void Run()
 	{
-		if (Input.GetKey(KeyCode.LeftShift) && !isCroughing && Input.GetKey(KeyCode.W))
-		{
-			targetSpeed *= runMultiplier;
-			if (targetSpeed - runMultiplier * forwardSpeed < 0.1f) isRunning = true;
-		}
+		if (Input.GetKey(KeyCode.LeftShift) && !isCroughing && Input.GetKey(KeyCode.W)) targetSpeed *= runMultiplier;
 		else isRunning = false;
+
+		if (targetSpeed - runMultiplier * forwardSpeed < 0.1f) isRunning = true;
 	}
 
 	void Jump()
