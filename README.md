@@ -15,7 +15,9 @@
 
   You can open the scene file *The_Viking_Village.unity* in the folder *DemoScene*.
 ## Basic Inputs:
-  Use *W, A, S, D* and your mouse to control the character. *LeftShift* to run, *LeftControl* to crawl and *Space* to jump.
+  Use *W, A, S, D* and your mouse to control the character.
+  
+  *LeftShift* to run, *LeftControl* to crawl and *Space* to jump.
 
   Wlile crawling, try *LeftAlt* to jump higher.
 
