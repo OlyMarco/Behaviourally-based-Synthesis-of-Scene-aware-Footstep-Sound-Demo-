@@ -21,7 +21,7 @@
 
   Wlile crawling, press *LeftAlt* to do a high jump.
 
-  Use *Escape* to quit the game.
+  If you want to quit the game, just press *Escape*.
 
 ## Debugging Tools:
 
