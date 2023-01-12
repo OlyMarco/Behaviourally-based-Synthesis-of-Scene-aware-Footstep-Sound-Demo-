@@ -4,7 +4,7 @@ public class BugRepairer : MonoBehaviour
 {
     [SerializeField] Transform[] Scene;
 
-    GameObject Foot, Player;
+    GameObject Player;
 
     RaycastHit hit;
 
@@ -13,7 +13,6 @@ public class BugRepairer : MonoBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////	
     void Start()
     {
-        Foot = GameObject.Find("Foot");
         Player = GameObject.Find("Player");
     }
 
@@ -28,14 +27,18 @@ public class BugRepairer : MonoBehaviour
         IsInside();
     }
     //////////////////////////////////////////////////////////////////////////////////////////////	
-    ///
+    void OnGUI()
+    {
+        if (texture != "") GUI.Label(new Rect(100, 100, 200, 200), texture);
+    }
+
     void DebugTools()
     {
         if (Input.GetKey(KeyCode.LeftAlt))
         {
             PlayerSynthesis.characterController.height = PlayerSynthesis.InstallCrouchHeight;
 
-            Physics.Raycast(Foot.transform.position, -Foot.transform.up, out hit, Mathf.Infinity);
+            Physics.Raycast(Player.transform.position, -Player.transform.up, out hit, Mathf.Infinity);
 
             texture = GetSurfaceIndex(hit.collider, hit.point);
         }
@@ -48,7 +51,7 @@ public class BugRepairer : MonoBehaviour
 
     void Tp()
     {
-        Vector3 pos = Scene[5].transform.position, pos0 = Scene[6].transform.position;
+        Vector3 pos = Scene[4].transform.position, pos0 = Scene[5].transform.position;
 
         if (Input.GetKey(KeyCode.N))
         {
@@ -60,8 +63,9 @@ public class BugRepairer : MonoBehaviour
             pos.y += 0.1f;
             pos0.y += 0.1f;
         }
-        Scene[5].transform.position = pos;
-        Scene[6].transform.position = pos0;
+
+        Scene[4].transform.position = pos;
+        Scene[5].transform.position = pos0;
 
         if (Input.GetKey(KeyCode.Keypad1)) Player.transform.position = Scene[0].position;
         if (Input.GetKey(KeyCode.Keypad2)) Player.transform.position = Scene[1].position;
@@ -69,13 +73,6 @@ public class BugRepairer : MonoBehaviour
         if (Input.GetKey(KeyCode.Keypad4)) Player.transform.position = Scene[3].position;
         if (Input.GetKey(KeyCode.Keypad5)) Player.transform.position = Scene[4].position;
         if (Input.GetKey(KeyCode.Keypad6)) Player.transform.position = Scene[5].position;
-        if (Input.GetKey(KeyCode.Keypad7)) Player.transform.position = Scene[6].position;
-    }
-
-    void OnGUI()
-    {
-        if (texture != "") GUI.Label(new Rect(100, 100, 200, 200), texture);
-        else GUI.Label(new Rect(100, 100, 200, 200), "");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////	
@@ -98,7 +95,7 @@ public class BugRepairer : MonoBehaviour
     {
         PlayerSynthesis.isInside = false;
 
-        Physics.Raycast(Foot.transform.position, -Foot.transform.up, out hit, Mathf.Infinity);
+        Physics.Raycast(Player.transform.position, -Player.transform.up, out hit, Mathf.Infinity);
 
         if (GetSurfaceIndex(hit.collider, hit.point) == "build_building_02_a") PlayerSynthesis.isInside = true;
     }

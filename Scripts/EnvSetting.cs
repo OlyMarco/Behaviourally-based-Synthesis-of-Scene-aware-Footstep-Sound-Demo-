@@ -17,7 +17,7 @@ public class EnvSetting : MonoBehaviour
     [SerializeField] GameObject defaultGameobject;
     [SerializeField] AudioClip defaultClip;
     [SerializeField] float defaultDistance = 30.0f;
-    [SerializeField, Range(0.1f, 1.0f)] float defaultVolume = 0.1f;
+    [SerializeField, Range(0.01f, 1.0f)] float defaultVolume = 0.05f;
 
     [Space(20)]
     [Header("AdditionalSounds")]
@@ -68,12 +68,17 @@ public class EnvSetting : MonoBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////	
     void Update()
     {
-        for (int i = 0; i < envSounds.Length; i++)
+        int length = envSounds.Length;
+
+        for (int i = 0; i < length; i++)
         {
             GameObject[] temp = envSounds[i].gameObjects;
 
+            int len = temp.Length;
+
             float distemp = envSounds[i].distance;
-            for (int j = 0; j < temp.Length; j++)
+
+            for (int j = 0; j < len; j++)
             {
                 audioSource = temp[j].GetComponent<AudioSource>();
 
@@ -85,13 +90,13 @@ public class EnvSetting : MonoBehaviour
 
                     if (PlayerSynthesis.isInside)
                     {
-                        audioSource.pitch = Mathf.Lerp(audioSource.pitch, 0.8f, Time.deltaTime);
-                        audioSource.volume = (distemp - 1.5f*distance) / distemp;
+                        audioSource.pitch = Mathf.Lerp(audioSource.pitch, 0.9f, Time.deltaTime);
+                        audioSource.volume = 0.5f * (distemp - 1.5f * distance) / distemp;
                     }
                     else
                     {
-                        audioSource.pitch = Mathf.Lerp(audioSource.pitch, 1.2f, Time.deltaTime);
-                        audioSource.volume = (distemp - distance) / distemp;
+                        audioSource.pitch = Mathf.Lerp(audioSource.pitch, 1.1f, Time.deltaTime);
+                        audioSource.volume = 0.5f * (distemp - distance) / distemp;
                     }
                 }
 
@@ -107,9 +112,9 @@ public class EnvSetting : MonoBehaviour
 
             if (dis < defaultDistance)
             {
-                audioSource.volume = 1.5f * (defaultDistance - dis) / (10 * defaultDistance) + defaultVolume;
-                audioSource.pitch = 4.5f * (defaultDistance - dis) / (10 * defaultDistance) + 1.0f;
+                audioSource.volume = 0.5f * (defaultDistance - dis) / (10 * defaultDistance) + defaultVolume;
+                audioSource.pitch = 3 * (defaultDistance - dis) / (10 * defaultDistance) + 1.0f;
             }
         }
-        }
     }
+}
