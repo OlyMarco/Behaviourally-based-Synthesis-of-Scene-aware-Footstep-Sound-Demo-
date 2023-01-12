@@ -29,4 +29,4 @@
 
   *KeyPad 1-7*: Transfer you to different places.
 
-  *N, M*: Reduce or increase the transfer point of *KeyPad 6 or 7*'s height.
+  *N, M*: Reduce or increase the height of the transfer point *KeyPad 6, KeyPad 7*.
