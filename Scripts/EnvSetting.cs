@@ -107,8 +107,8 @@ public class EnvSetting : MonoBehaviour
 
             if (dis < defaultDistance)
             {
-                audioSource.volume = (defaultDistance - dis) / 10*defaultDistance + defaultVolume;
-                audioSource.pitch = 3*(defaultDistance - dis) / 10*defaultDistance + 1.0f;
+                audioSource.volume = 2 * (defaultDistance - dis) / (10 * defaultDistance) + defaultVolume;
+                audioSource.pitch = 3*(defaultDistance - dis) / (10 * defaultDistance) + 1.0f;
             }
         }
         }
