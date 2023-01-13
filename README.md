@@ -12,7 +12,7 @@
 ##
   The Unity Engine is 2021.3.16f1c1.
 
-  You can open the scene file *The_Viking_Village.unity* in the folder *DemoScene*.
+  You can open the scene file *The_Viking_Village.unity* in the folder *DemoScene* with Unity Engine.
 ## Basic Inputs:
   Use *W, A, S, D* and your mouse to basically control the character.
   
@@ -26,7 +26,7 @@
 
   *LeftAlt*: Display the material under your feet.
 
-  *KeyPad 1-7*: Transfer you to seven different places.
+  *KeyPad 1-6*: Transfer you to six different places.
 
-  *N, M*: Reduce or increase the height of the transfer point *KeyPad 6, KeyPad 7*.
+  *N, M*: Reduce or increase the height of the transfer point *KeyPad 5, KeyPad 6*.
   
