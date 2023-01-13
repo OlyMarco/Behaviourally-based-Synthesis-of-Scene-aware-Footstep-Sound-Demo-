@@ -28,5 +28,5 @@
 
   *KeyPad 1-6*: Transfer you to six different places.
 
-  *N, M*: Reduce or increase the height of the transfer point *KeyPad 5, KeyPad 6*.
+  *N, M*: Lower or raise the height of two transfer points, *KeyPad 5 and KeyPad 6*.
   
