@@ -8,7 +8,7 @@ public class BugRepairer : MonoBehaviour
 
     RaycastHit hit;
 
-    string texture;
+    string _textureName;
 
     //////////////////////////////////////////////////////////////////////////////////////////////	
     void Start()
@@ -29,7 +29,7 @@ public class BugRepairer : MonoBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////	
     void OnGUI()
     {
-        if (texture != "") GUI.Label(new Rect(100, 100, 200, 200), texture);
+        if (_textureName != "") GUI.Label(new Rect(100, 100, 200, 200), texture);
     }
 
     void DebugTools()
@@ -40,9 +40,9 @@ public class BugRepairer : MonoBehaviour
 
             Physics.Raycast(Player.transform.position, -Player.transform.up, out hit, Mathf.Infinity);
 
-            texture = GetSurfaceIndex(hit.collider, hit.point);
+            _textureName = GetSurfaceIndex(hit.collider, hit.point);
         }
-        else texture = "";
+        else _textureName = "";
 
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
 

@@ -30,8 +30,8 @@ public class PlayerSynthesis : MonoBehaviour
 	[Space(20)]
 
 	[Header("Jump Settings")]
-	[SerializeField] float jumpBaseSpeed = 5f;
-	[SerializeField] float jumpExtraSpeed = 1f;
+	[SerializeField] float jumpBaseSpeed = 5.0f;
+	[SerializeField] float jumpExtraSpeed = 1.0f;
 
 	[Space(20)]
 
@@ -61,19 +61,38 @@ public class PlayerSynthesis : MonoBehaviour
 
 	float targetSpeed, currentSpeed, remainedExtraJumpSpeed, speed;
 	float Lookvertical, Lookhorizontal, rotationX = 0;
+	float InstallFOV, distance = 0, height, deltaHeight, timer = 0, tmpTimer=0;
 
 	float minVolume = 0.4f,
 		maxVolume = 0.6f,
-		distanceWoR = 0.79f,
-		minRun = 0.2f,
-		maxRun = 0.3f,
-		distanceCro = 0.35f,
-		minCro = 0.2f,
-		maxCro = 0.2f,
-        distanceDelta = 0.2f,
-		dropMultiple = 1.2f;
+		distanceWalkOrRun = 0.79f,
+		minRunVolume = 0.2f,
+		maxRunVolume = 0.3f,
+		distanceCrouch = 0.35f,
+		minCrouchVolume = 0.2f,
+		maxCrouchVolume = 0.2f,
+        deltaDefault = 0.2f,
+		dropMultiple = 1.2f,
+		crouchMultiple = 0.33f,
+		runVolume = 0.96f,
+		crouchVolume = 0.75f,
+		walkVolume = 0.93f,;
 
-    public static float InstallCrouchHeight, InstallFOV, distance = 0, height, delta, timer = 0, tmpTimer=0;
+	float minOutCrouchPitch = 0.62f,
+		maxOutCrouchPitch = 0.68f,
+		minOutRunPitch = 1.35f,
+		maxOutRunPitch = 1.85f,
+		minOutWalkPitch = 0.88f,
+		maxOutWalkPitch = 1.12f,
+
+	    minInCrouchPitch = 0.35f,
+	    maxInCrouchPitch = 0.47f,
+		minInRunPitch = 0.65f,
+		maxInRunPitch = 0.72f,
+		minInWalkPitch = 0.45f,
+		maxInWalkPitch = 0.55f,
+    
+    public static float InstallCrouchHeight;
 
 	public static bool isRunning = false, isCroughing = false, isInside = false, jump;
 
@@ -113,11 +132,11 @@ public class PlayerSynthesis : MonoBehaviour
 
 		else if (height < Foot.transform.position.y) height = Foot.transform.position.y;
 
-		delta = height - Foot.transform.position.y;
+		deltaHeight = height - Foot.transform.position.y;
 
 		if (speed < 0.05f) timer += Time.deltaTime;
 
-        SoundSetting();
+        SoundSeetting();
 	}
 
     void FixedUpdate()
@@ -223,7 +242,7 @@ public class PlayerSynthesis : MonoBehaviour
 		if (Input.GetKey(KeyCode.LeftControl) && !isJumping)
 		{
 			characterController.height = Mathf.Lerp(characterController.height, 2 * InstallCrouchHeight / 5, 2 * Time.deltaTime);
-			targetSpeed *= 0.33f;
+			targetSpeed *= crouchMultiple;
 		}
 		else
 		{
@@ -352,38 +371,38 @@ public class PlayerSynthesis : MonoBehaviour
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	void SoundSetting()
     {
-		if (isJumping || isRunning) audioSource.volume = Mathf.Lerp(audioSource.volume, 0.96f, 2 * Time.deltaTime);
+		if (isJumping || isRunning) audioSource.volume = Mathf.Lerp(audioSource.volume, runVolume, 2 * Time.deltaTime);
 
-		else if (isCroughing) audioSource.volume = Mathf.Lerp(audioSource.volume, 0.75f, Time.deltaTime);
+		else if (isCroughing) audioSource.volume = Mathf.Lerp(audioSource.volume, crouchVolume, Time.deltaTime);
 
-		else audioSource.volume = Mathf.Lerp(audioSource.volume, 0.93f, Time.deltaTime);
+		else audioSource.volume = Mathf.Lerp(audioSource.volume, walkVolume, Time.deltaTime);
 
-		if (!isRunning && !isCroughing && distance > distanceWoR)
+		if (!isRunning && !isCroughing && distance > distanceWalkOrRun)
 		{
 			distance = 0;
 
 			PlayOneShot(minVolume, maxVolume);
 		}
 
-		if (isRunning && distance > distanceWoR)
+		if (isRunning && distance > distanceWalkOrRun)
 		{
 			distance = 0;
 
-			PlayOneShot(minVolume + minRun, maxVolume + maxRun);
+			PlayOneShot(minVolume + minRunVolume, maxVolume + maxRunVolume);
 		}
 
-		if (isCroughing && distance > distanceCro)
+		if (isCroughing && distance > distanceCrouch)
 		{
 			distance = 0;
 
-			PlayOneShot(minVolume - minCro, maxVolume - maxCro);
+			PlayOneShot(minVolume - minCrouchVolume, maxVolume - maxCrouchVolume);
 		}
 
-		if (isGrounded & delta > distanceDelta)
+		if (isGrounded & deltaHeight > deltaDefault)
 		{
 			height = 0;
 
-			PlayOneShot(minVolume + dropMultiple * delta, maxVolume + dropMultiple * delta);
+			PlayOneShot(minVolume + dropMultiple * deltaHeight, maxVolume + dropMultiple * deltaHeight);
 		}
 
 		if (speed > 0.05f && timer > 0.1f)
@@ -395,7 +414,7 @@ public class PlayerSynthesis : MonoBehaviour
 		}
 	}
 
-	void PlayOneShot(float minV, float maxV)
+	void PlayOneShot(float _minVolume, float _maxVolume)
 	{
 		Physics.Raycast(transform.position, -transform.up, out hit, Mathf.Infinity);
 		if (hit.collider != null)
@@ -411,26 +430,26 @@ public class PlayerSynthesis : MonoBehaviour
 
 				m = n;
 
-				float randomVolume = Random.Range(minV, maxV);
+				float randomVolume = Random.Range(_minVolume, _maxVolume);
 
 				if (previouslyGrounded)
 				{
 					if (!isInside)
 					{
-						if (isCroughing) audioSource.pitch = Random.Range(0.62f, 0.68f);
+						if (isCroughing) audioSource.pitch = Random.Range(minOutCrouchPitch, maxOutCrouchPitch);
 
-						else if (isRunning)	audioSource.pitch = Random.Range(1.35f, 1.85f);
+						else if (isRunning)	audioSource.pitch = Random.Range(minOutRunPitch, maxOutRunPitch);
 
-						else audioSource.pitch = Random.Range(0.88f, 1.12f);
+						else audioSource.pitch = Random.Range(minOutWalkPitch, maxOutWalkPitch);
 					}
 
 					else
 					{
-						if (isCroughing) audioSource.pitch = Random.Range(0.35f, 0.47f);
+						if (isCroughing) audioSource.pitch = Random.Range(minInCrouchPitch, maxInCrouchPitch);
 
-						else if (isRunning) audioSource.pitch = Random.Range(0.65f, 0.72f);
+						else if (isRunning) audioSource.pitch = Random.Range(minInRunPitch, maxInRunPitch);
 
-						else audioSource.pitch = Random.Range(0.45f, 0.55f);
+						else audioSource.pitch = Random.Range(minInWalkPitch, maxInWalkPitch);
 					}
 				}
 
