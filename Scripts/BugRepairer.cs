@@ -27,22 +27,22 @@ public class BugRepairer : MonoBehaviour
         IsInside();
     }
     //////////////////////////////////////////////////////////////////////////////////////////////	
-    void OnGUI()
-    {
-        if (_textureName != "") GUI.Label(new Rect(100, 100, 200, 200), _textureName);
-    }
+    //void OnGUI()
+    //{
+    //    if (_textureName != "") GUI.Label(new Rect(100, 100, 200, 200), _textureName);
+    //}
 
     void DebugTools()
     {
-        if (Input.GetKey(KeyCode.LeftAlt))
-        {
-            PlayerSynthesis.characterController.height = PlayerSynthesis.InstallCrouchHeight;
+        //if (Input.GetKey(KeyCode.LeftAlt))
+        //{
+        //    PlayerSynthesis.characterController.height = PlayerSynthesis.InstallCrouchHeight;
 
-            Physics.Raycast(Player.transform.position, -Player.transform.up, out hit, Mathf.Infinity);
+        //    Physics.Raycast(Player.transform.position, -Player.transform.up, out hit, Mathf.Infinity);
 
-            _textureName = GetSurfaceIndex(hit.collider, hit.point);
-        }
-        else _textureName = "";
+        //    _textureName = GetSurfaceIndex(hit.collider, hit.point);
+        //}
+        //else _textureName = "";
 
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
 

@@ -14,12 +14,12 @@ public class PlayerSynthesis : MonoBehaviour
 	public Vector3 velocity { get; private set; }
 	public bool isJumping { get; private set; }
 	public bool isGrounded { get; private set; }
-	public bool previouslyGrounded { get; private set; }
+    public bool previouslyGrounded { get; private set; }
 
 	[Header("Movement Settings")]
 	[SerializeField] float forwardSpeed = 1.2f;
-	[SerializeField] float backwardSpeed = 1.0f;
-	[SerializeField] float strafeSpeed = 2.0f;
+	[SerializeField] float backwardSpeed = 0.9f;
+	[SerializeField] float strafeSpeed = 0.9f;
 	[SerializeField] float runMultiplier = 1.8f;
 	[SerializeField] float acceleration = 18f;
 	[SerializeField] float deceleration = 12f;
@@ -65,14 +65,15 @@ public class PlayerSynthesis : MonoBehaviour
 
 	float minVolume = 0.4f,
 		maxVolume = 0.6f,
-		distanceWalkOrRun = 0.79f,
+		distanceWalk = 1.0f,
+		distanceRun = 0.92f,
 		minRunVolume = 0.2f,
 		maxRunVolume = 0.3f,
 		distanceCrouch = 0.35f,
-		minCrouchVolume = 0.2f,
-		maxCrouchVolume = 0.2f,
+		minCrouchVolume = 0.1f,
+		maxCrouchVolume = 0.1f,
         deltaDefault = 0.2f,
-		dropMultiple = 1.2f,
+		dropMultiple = 1.3f,
 		crouchMultiple = 0.33f,
 		runVolume = 0.96f,
 		crouchVolume = 0.75f,
@@ -252,7 +253,9 @@ public class PlayerSynthesis : MonoBehaviour
 
 		if (characterController.height - InstallCrouchHeight / 3 < 0.5f) isCroughing = true;
 		else isCroughing = false;
-	}
+
+		if (Input.GetKey(KeyCode.LeftAlt)) characterController.height = InstallCrouchHeight;
+    }
 
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	int GetSurfaceIndex(Collider col, Vector3 worldPos)
@@ -377,14 +380,14 @@ public class PlayerSynthesis : MonoBehaviour
 
 		else audioSource.volume = Mathf.Lerp(audioSource.volume, walkVolume, Time.deltaTime);
 
-		if (!isRunning && !isCroughing && distance > distanceWalkOrRun)
+		if (!isRunning && !isCroughing && distance > distanceWalk)
 		{
 			distance = 0;
 
 			PlayOneShot(minVolume, maxVolume);
 		}
 
-		if (isRunning && distance > distanceWalkOrRun)
+		if (isRunning && distance > distanceRun)
 		{
 			distance = 0;
 
@@ -398,7 +401,7 @@ public class PlayerSynthesis : MonoBehaviour
 			PlayOneShot(minVolume - minCrouchVolume, maxVolume - maxCrouchVolume);
 		}
 
-		if (isGrounded & deltaHeight > deltaDefault)
+		if (isGrounded && deltaHeight > deltaDefault)
 		{
 			height = 0;
 
@@ -420,11 +423,11 @@ public class PlayerSynthesis : MonoBehaviour
 		if (hit.collider != null)
 		{
 			int index = GetSurfaceIndex(hit.collider, hit.point);
-			//if (index == -1) index = 0; 
-			if (index != -1)
-			{
+			//if (index == -1) index = 0;
+            if (index != -1)
+            {
 
-				AudioClip[] footsteps = definedSurfaces[index].footsteps;
+                AudioClip[] footsteps = definedSurfaces[index].footsteps;
 
 				while (n == m) n = Random.Range(0, footsteps.Length);
 
@@ -451,9 +454,9 @@ public class PlayerSynthesis : MonoBehaviour
 
 						else audioSource.pitch = Random.Range(minInWalkPitch, maxInWalkPitch);
 					}
-				}
+                }
 
-				audioSource.PlayOneShot(footsteps[n], randomVolume);
+                audioSource.PlayOneShot(footsteps[n], randomVolume);
             }
         }
     }
