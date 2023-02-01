@@ -76,7 +76,7 @@ public class PlayerSynthesis : MonoBehaviour
 		crouchMultiple = 0.33f,
 		runVolume = 0.96f,
 		crouchVolume = 0.75f,
-		walkVolume = 0.93f,;
+		walkVolume = 0.93f;
 
 	float minOutCrouchPitch = 0.62f,
 		maxOutCrouchPitch = 0.68f,
@@ -90,7 +90,7 @@ public class PlayerSynthesis : MonoBehaviour
 		minInRunPitch = 0.65f,
 		maxInRunPitch = 0.72f,
 		minInWalkPitch = 0.45f,
-		maxInWalkPitch = 0.55f,
+		maxInWalkPitch = 0.55f;
     
     public static float InstallCrouchHeight;
 
