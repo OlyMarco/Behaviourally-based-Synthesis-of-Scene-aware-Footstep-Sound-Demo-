@@ -29,7 +29,7 @@ public class BugRepairer : MonoBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////	
     void OnGUI()
     {
-        if (_textureName != "") GUI.Label(new Rect(100, 100, 200, 200), texture);
+        if (_textureName != "") GUI.Label(new Rect(100, 100, 200, 200), _textureName);
     }
 
     void DebugTools()

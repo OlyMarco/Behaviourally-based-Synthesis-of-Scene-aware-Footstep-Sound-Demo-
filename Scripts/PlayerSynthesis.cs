@@ -136,8 +136,8 @@ public class PlayerSynthesis : MonoBehaviour
 
 		if (speed < 0.05f) timer += Time.deltaTime;
 
-        SoundSeetting();
-	}
+		SoundSetting();
+    }
 
     void FixedUpdate()
 	{
