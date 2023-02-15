@@ -12,7 +12,7 @@
 ##
   The version of Unity Engine is 2021.3.16f1c1.
 
-  You should load the scene file *The_Viking_Village.unity* in the folder *DemoScene* in Unity 3D (URP) Core.
+  You should load the scene file *The_Viking_Village.unity* in Unity 3D (URP) Core.
 ## Basic Inputs:
   Use *W, A, S, D* and your mouse to basically control the character.
   
