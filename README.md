@@ -4,8 +4,6 @@
   This is a Unity demo of *Behaviourally-based Synthesis of Scene-aware Footstep Sound*. Try the demo to feel how behaviours and scenes influence footstep sound. Here is the Unity Project download link: https://drive.google.com/file/d/1cGjgegC9f3vMLgW8L4dqG2sMCScL_O1r/view?usp=share_link
   
   The scene package name is *Viking Village URP* from Unity Asset Store: https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140
-
-  There're still some bugs in the demo. Don't mind them, just pay attention to the technique.
  
 # Usage
 ##
