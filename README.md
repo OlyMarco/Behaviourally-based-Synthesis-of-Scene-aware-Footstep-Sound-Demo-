@@ -6,7 +6,7 @@
   The scene package is *Viking Village URP* from Unity Asset Store. 
   Here is the link: https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140
 
-  There're still some bugs in the demo. Don't mind them, just pay attition to the technique.
+  There're still some bugs in the demo. Don't mind them, just pay attention to the technique.
  
 # Usage
 ##
