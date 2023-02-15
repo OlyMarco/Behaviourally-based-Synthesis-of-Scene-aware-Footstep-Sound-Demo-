@@ -11,7 +11,7 @@
 
   You should load the scene file *The_Viking_Village.unity* in Unity 3D (URP) Core.
 ## Basic Inputs:
-  Use *W, A, S, D* and your mouse to basically control the character.
+  Use *W, A, S, D* and mouse to basically control the character.
   
   *LeftShift* to run, *LeftControl* to crawl and *Space* to jump.
 
