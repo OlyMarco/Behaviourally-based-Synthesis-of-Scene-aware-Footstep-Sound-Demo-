@@ -23,6 +23,6 @@
 
   *LeftAlt*: Display the material name under feet.
 
-  *KeyPad 1-6*: Transfer the character to six different places.
+  *KeyPad 1 - 6*: Transfer the character to six different places.
 
   *N, M*: Lower or raise the transfer point height of *KeyPad 5* and *KeyPad 6*.
