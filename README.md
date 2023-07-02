@@ -1,9 +1,11 @@
-# *Behaviourally-based Synthesis of Scene-aware Footstep Sound* (Unity Demo)
+# *Behaviourally-based Synthesis of Scene-aware Footstep Sound*
 # Introducation
 ##
-  This is a demo of *Behaviourally-based Synthesis of Scene-aware Footstep Sound*. Try the demo to feel how behaviours and scenes influence footstep sound. Here is the Unity Project download link: https://drive.google.com/file/d/1cGjgegC9f3vMLgW8L4dqG2sMCScL_O1r/view?usp=share_link
+  This is a demo of *Behaviourally-based Synthesis of Scene-aware Footstep Sound*. Try the demo to feel how behaviours and scenes influence footstep sound. Here is the Unity Project download link:
+- https://drive.google.com/file/d/1cGjgegC9f3vMLgW8L4dqG2sMCScL_O1r/view?usp=share_link
   
-  The scene package name is *Viking Village URP* from Unity Asset Store: https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140
+  The scene package name is *Viking Village URP* from Unity Asset Store:
+- https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140
  
 # Usage
 ##
@@ -26,3 +28,6 @@
   *KeyPad 1 - 6*: Transfer the character to six different places.
 
   *N, M*: Lower or raise the transfer point height of *KeyPad 5 & 6's*.
+
+## [Behaviourally-based Synthesis of Scene-aware Footstep Sound] Demo Video:
+- https://youtu.be/iDY0xn7eX9Y
