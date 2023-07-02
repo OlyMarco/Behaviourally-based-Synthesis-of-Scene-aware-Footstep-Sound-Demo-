@@ -29,5 +29,5 @@
 
   *N, M*: Lower or raise the transfer point height of *KeyPad 5 & 6's*.
 
-## [Behaviourally-based Synthesis of Scene-aware Footstep Sound] Demo Video:
+## [*] Demo Video:
 - https://youtu.be/iDY0xn7eX9Y
