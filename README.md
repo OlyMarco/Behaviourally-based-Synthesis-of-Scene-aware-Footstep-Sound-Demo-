@@ -1,4 +1,7 @@
 # *Behaviourally-based Synthesis of Scene-aware Footstep Sound*
+
+![Screenshot](./images/main.png)
+
 # Introducation
 ##
   This is a demo of *Behaviourally-based Synthesis of Scene-aware Footstep Sound*. Try the demo to feel how behaviours and scenes influence footstep sound. Here is the Unity Project download link:
